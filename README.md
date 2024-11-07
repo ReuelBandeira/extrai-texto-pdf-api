@@ -25,3 +25,15 @@ A API permite que você envie um arquivo PDF e receba o texto extraído dele. Pa
 ```bash
  http://localhost:5000/process_pdf
 ```
+
+### Opcional: Usar docker para startar
+
+```bash
+ docker compose build
+```
+
+e
+
+```bash
+ docker compose up -d
+```
