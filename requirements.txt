@@ -1,0 +1,7 @@
+numpy
+opencv-python
+torch
+pillow
+transformers
+pdf2image
+pyocr
