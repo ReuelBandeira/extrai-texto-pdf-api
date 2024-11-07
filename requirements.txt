@@ -1,7 +1,8 @@
-numpy
-opencv-python
-torch
-pillow
-transformers
+Flask
 pdf2image
 pyocr
+torch
+transformers
+pillow
+opencv-python
+numpy
