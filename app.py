@@ -30,13 +30,14 @@ def process_pdf():
         pdf_it = PdfIT()
         list_it, list_posto, list_titulo = pdf_it.get(filename)
 
+        # Combinar list_posto e list_titulo em uma lista de dicionários
+        resultado = [{"posto": posto, "titulo_posto": titulo} for posto, titulo in zip(list_posto, list_titulo)]
+
         # Retornar o resultado em formato JSON
-        return jsonify({
-            'postos': list_posto,
-            'titulo_postos': list_titulo
-        })
+        return jsonify(resultado)
     else:
         return jsonify({'error': 'Invalid file format'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)
+
