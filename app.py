@@ -28,10 +28,13 @@ def process_pdf():
 
         # Processar o PDF com a classe PdfIT
         pdf_it = PdfIT()
-        list_it, list_posto, list_titulo = pdf_it.get(filename)
+        list_it, list_posto, list_titulo, list_pagina = pdf_it.get(filename)
 
-        # Combinar list_posto e list_titulo em uma lista de dicionários
-        resultado = [{"posto": posto, "titulo_posto": titulo} for posto, titulo in zip(list_posto, list_titulo)]
+        # Combinar list_posto, list_titulo e list_pagina em uma lista de dicionários
+        resultado = [
+            {"pagina": pagina, "posto": posto, "titulo_posto": titulo}
+            for pagina, posto, titulo in zip(list_pagina, list_posto, list_titulo)
+        ]
 
         # Retornar o resultado em formato JSON
         return jsonify(resultado)
@@ -40,4 +43,5 @@ def process_pdf():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
